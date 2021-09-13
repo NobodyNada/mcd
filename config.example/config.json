@@ -1,0 +1,10 @@
+{
+    "discord": {
+        "token": "your Discord token",
+        "channel": 12345678
+    },
+    "server": {
+        "version": "release",
+        "jvm_arguments": ["-Xms1024M", "-Xmx1024M", "-Xss1M"]
+    }
+}

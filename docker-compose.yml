@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  minecraft-server:
+    build: .
+    volumes:
+      - type: bind
+        source: ./config/config.json
+        target: /minecraft/config.json
+      - type: bind
+        source: ./config/eula.txt
+        target: /minecraft/server/eula.txt
+      - type: bind
+        source: ./config/server.properties
+        target: /minecraft/server/server.properties
+      - server:/minecraft/server
+      - jars:/minecraft/jars
+    stop_grace_period: 2m # give it time to save
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+volumes:
+  server:
+  jars:
